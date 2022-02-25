@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="form-wrapper">
+    <div class="card">
+    <h1><%= @car.brand %> <%= @car.model %></h1>
+    <h4>Tarif journalier : <%= @car.price_per_day %>€</h4>
+    <%= simple_form_for [@car, @booking] do |f| %>
+        <%= f.input :start_at, as: :date, html5: true,
+              input_html: { id: "range_start" }, label: "Début" %>
+      <%= f.input :end_at, as: :date, html5: true,
+              input_html: { id: "range_end" }, label: "Fin" %>
+      <%= f.submit %>
+      <% end %>
+      </div>
+  </div>
+</div>
+
+<div id="booking-form-div"
+  data-bookings="<%= @bookings_dates.to_json %>">
+</div>

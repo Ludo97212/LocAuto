@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="show">
+    <div class="part">
+      <h2><%= @car.brand %> <%= @car.model %></h2>
+      <p>Année de production : <%= @car.year_of_production %></p>
+      <% if @car.photo.attached? %>
+          <%= cl_image_tag @car.photo.key, height: 500, width: 500, crop: :fill %>
+          <% else %>
+            <%= image_tag "default_car.png", height: 500, width: 500, crop: :fill%>
+          <% end %>
+    </div>
+    <div class="part">
+      <h2><%= @car.address %></h2>
+      <h2>Forfait journalier : <%= @car.price_per_day %>€ </h2>
+    </div>
+  </div>
+
+  <div>
+    <%= link_to "Retour à l'accueil", cars_path, class: "btn btn-link" %>
+    <% if @car.user == current_user %>
+      <%= link_to "Modifier Informations", edit_car_path(@car), class: "btn btn-warning" %>
+      <%= link_to "Supprimer offre", car_path(@car), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
+    <% else %>
+      <%= link_to "Réserver Location", new_car_booking_path(@car), class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

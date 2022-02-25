@@ -1,0 +1,11 @@
+<div class="container">
+  <%= simple_form_for @car do |f| %>
+    <%= f.input :brand %>
+    <%= f.input :model %>
+    <%= f.input :year_of_production %>
+    <%= f.input :address %>
+    <%= f.input :price_per_day %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+    <% end %>
+</div>

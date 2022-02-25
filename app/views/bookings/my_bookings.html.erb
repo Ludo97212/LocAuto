@@ -1,0 +1,18 @@
+<div class="container">
+  <% @bookings.each do |bkg| %>
+    <div class="card">
+      <p><%= bkg.car.brand %> - <%= bkg.car.model %></p>
+      <p>Début Location : <%= bkg.start_at %></p>
+      <p>Fin : <%= bkg.end_at %></p>
+      <p>Durée : <%= @days = (bkg.start_at..bkg.end_at).count %> jours</p>
+      <p>Prix journalier : <%= @price = bkg.car.price_per_day %>€</p>
+      <p>Montant TOTAL : <%= @days * @price %>€</p>
+      <% if bkg.accepted %>
+        <p>Statut : Acceptéé</p>
+      <% else %>
+        <p>Statut : En attente</p>
+        <%= link_to "Annuler la réservation", booking_path(bkg), method: :delete, data: { confirm: "Etes vous sure?" } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

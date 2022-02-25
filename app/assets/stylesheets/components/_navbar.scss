@@ -1,6 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  h2 {
+    color: #067bc2;
+  }
+  p {
+    margin-right: 15px;
+  }
+  img {
+    &:hover {
+      opacity: 0.4;
+    }
+  }
 }
 
 .navbar-lewagon .navbar-collapse {

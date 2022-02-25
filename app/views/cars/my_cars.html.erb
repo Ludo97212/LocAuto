@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="card">
+    <% @cars.each do |car| %>
+      <%= car.address %>
+      <h4><%= link_to car.brand, car_path(car) %> <%= link_to car.model, car_path(car) %></h4>
+      <p><%= car.price_per_day %>€/jour</p>
+    <% end %>
+  </div>
+</div>
