@@ -2,7 +2,6 @@ class BookingsController < ApplicationController
   def new
     set_car
     @booking = Booking.new
-    # -------FlatPickr------------
     @bookings = Booking.all
     @bookings_dates = @bookings.map do |booking|
       {
