@@ -7,7 +7,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "flatpickr/dist/flatpickr";
+// @import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/material_blue.css";
 
 // Your CSS partials
 @import "components/index";
@@ -19,4 +20,7 @@ body {
 
 a {
     text-decoration: none;
+    &:hover {
+      text-decoration: none
+    }
   }

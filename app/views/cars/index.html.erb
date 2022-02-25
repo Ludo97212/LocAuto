@@ -14,16 +14,16 @@
     <% @cars.each do |car| %>
       <div class="card-trip">
         <% if car.photo.attached? %>
-          <%= cl_image_tag car.photo.key %>
+          <%= link_to cl_image_tag(car.photo.key), car_path(car) %>
         <% else %>
-          <%= image_tag "default_car.png"%>
+          <%= link_to image_tag("default_car.png"), car_path(car) %>
         <% end %>
         <div class="card-trip-infos">
           <div>
             <%= car.address %>
-            <h4><%= link_to car.brand, car_path(car) %> <%= link_to car.model, car_path(car) %></h4>
+            <h2><%= link_to car.brand, car_path(car) %> <%= link_to car.model, car_path(car) %></h2>
           </div>
-          <h2 class="card-trip-pricing"><%= car.price_per_day %>€/jour</h2>
+          <h4 class="card-trip-pricing"><%= car.price_per_day %>€/jour</h4>
         </div>
       </div>
     <% end %>

@@ -2,13 +2,13 @@
   <div class="form-wrapper">
     <div class="card">
     <h1><%= @car.brand %> <%= @car.model %></h1>
-    <h4>Tarif journalier : <%= @car.price_per_day %>€</h4>
+    <p><%= @car.price_per_day %>€/jour</p>
     <%= simple_form_for [@car, @booking] do |f| %>
         <%= f.input :start_at, as: :date, html5: true,
-              input_html: { id: "range_start" }, label: "Début" %>
+              input_html: { id: "range_start", class: "d-none" }, label: false %>
       <%= f.input :end_at, as: :date, html5: true,
-              input_html: { id: "range_end" }, label: "Fin" %>
-      <%= f.submit %>
+              input_html: { id: "range_end", class: "d-none" }, label: false %>
+      <%= f.submit "Réservez mainenant !", class: "btn btn-primary" %>
       <% end %>
       </div>
   </div>
