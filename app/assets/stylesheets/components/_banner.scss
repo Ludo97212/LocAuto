@@ -36,3 +36,19 @@
     border-color: #067bc2;
   }
 }
+
+// --------------------------------
+
+.banner-show {
+  background-size: cover;
+  background-position: center;
+  background-color: #067bc2;
+  padding: 30px;
+  margin-bottom: 12px;
+  text-align: center;
+  h1 {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+  }
+}

@@ -1,15 +1,17 @@
 <div class="container">
-  <div class="card">
+
     <% @cars.each do |car| %>
-      <div class="div">
-        <h4><%= link_to car.brand, car_path(car) %> <%= link_to car.model, car_path(car) %></h4>
-        <p><%= car.price_per_day %>€/jour</p>
+      <div class="card-my-cars">
         <% if car.photo.attached? %>
           <%= link_to cl_image_tag(car.photo.key, height: 180, width: 180, crop: "fill"), car_path(car) %>
         <% else %>
           <%= link_to image_tag("default_car.png", height: 180, width: 180, crop: "fill"), car_path(car) %>
         <% end %>
+        <div class="card-my-cars-infos">
+          <h4><%= link_to car.brand, car_path(car) %> <%= link_to car.model, car_path(car) %></h4>
+          <p><%= car.price_per_day %>€/jour</p>
+        </div>
       </div>
     <% end %>
-  </div>
+
 </div>

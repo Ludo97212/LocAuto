@@ -1,6 +1,9 @@
 .show {
   display: flex;
   flex-direction: row;
+  img {
+    border-radius: 10px;
+  }
   .part {
     margin: 50px;
   }

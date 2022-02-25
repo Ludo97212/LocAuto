@@ -1,17 +1,20 @@
+<div class="banner-show">
+  <h1><%= @car.brand %> <%= @car.model %></h1>
+</div>
+
 <div class="container">
   <div class="show">
     <div class="part">
-      <h2><%= @car.brand %> <%= @car.model %></h2>
-      <p>Année de production : <%= @car.year_of_production %></p>
       <% if @car.photo.attached? %>
-          <%= cl_image_tag @car.photo.key, height: 500, width: 500, crop: :fill %>
-          <% else %>
-            <%= image_tag "default_car.png", height: 500, width: 500, crop: :fill%>
-          <% end %>
+        <%= cl_image_tag @car.photo.key, height: 500, width: 500, crop: :fill %>
+      <% else %>
+        <%= image_tag "default_car.png", height: 500, width: 500, crop: :fill%>
+      <% end %>
     </div>
     <div class="part">
-      <h2><%= @car.address %></h2>
-      <h2>Forfait journalier : <%= @car.price_per_day %>€ </h2>
+      <h3><%= @car.address %></h3>
+      <h3>Forfait journalier : <%= @car.price_per_day %>€</h3>
+      <h3>Année de production : <%= @car.year_of_production %></h3>
     </div>
   </div>
 
