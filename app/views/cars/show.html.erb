@@ -1,7 +1,6 @@
 <div class="banner-show">
-  <h1><%= @car.brand %> <%= @car.model %></h1>
+  <h1><%= @car.brand.upcase %> <%= @car.model.capitalize %></h1>
 </div>
-
 <div class="container">
   <div class="show">
     <div class="part">
@@ -12,19 +11,32 @@
       <% end %>
     </div>
     <div class="part">
-      <h3><%= @car.address %></h3>
-      <h3>Forfait journalier : <%= @car.price_per_day %>€</h3>
-      <h3>Année de production : <%= @car.year_of_production %></h3>
+      <% if @car.user != current_user %>
+        <div class="form-wrapper">
+          <div class="card">
+            <%= simple_form_for [@car, @booking] do |f| %>
+                <%= f.input :start_at, as: :date, html5: true,
+                      input_html: { id: "range_start", class: "d-none" }, label: false %>
+              <%= f.input :end_at, as: :date, html5: true,
+                      input_html: { id: "range_end", class: "d-none" }, label: false %>
+              <%= f.submit "Réservez mainenant !", class: "btn btn-primary" %>
+              <% end %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to "Modifier les informations", edit_car_path(@car), class: "btn btn-warning" %>
+        <%= link_to "Supprimer cette offre !", car_path(@car), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
+      <% end %>
     </div>
   </div>
 
-  <div>
-    <%= link_to "Retour à l'accueil", cars_path, class: "btn btn-link" %>
-    <% if @car.user == current_user %>
-      <%= link_to "Modifier Informations", edit_car_path(@car), class: "btn btn-warning" %>
-      <%= link_to "Supprimer offre", car_path(@car), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
-    <% else %>
-      <%= link_to "Réserver Location", new_car_booking_path(@car), class: "btn btn-success" %>
-    <% end %>
-  </div>
+  <h1>Informations :</h1>
+  <h4>Adresse : <%= @car.address %></h4>
+  <h4>Tarif journalier : <%= @car.price_per_day %>€</h4>
+  <h4>Année.prod : <%= @car.year_of_production %></h4>
+  <%= link_to " Retour à l'accueil", cars_path, class: "fas fa-arrow-alt-circle-left" %>
+</div>
+
+<div id="booking-form-div"
+  data-bookings="<%= @bookings_dates.to_json %>">
 </div>

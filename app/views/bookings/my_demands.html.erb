@@ -1,6 +1,6 @@
 <div class="container">
   <% @bookings.each do |bkg| %>
-    <div class="card">
+    <div class="card-books">
     <h2><%= link_to "Réservation", show_demand_path(bkg) %> </h2>
       <p><%= bkg.car.brand %> - <%= bkg.car.model %></p>
       <p>Début Location : <%= bkg.start_at %></p>

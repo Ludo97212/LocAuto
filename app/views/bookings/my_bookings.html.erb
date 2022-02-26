@@ -1,6 +1,6 @@
 <div class="container">
   <% @bookings.each do |bkg| %>
-    <div class="card">
+    <div class="card-books">
       <p><%= bkg.car.brand %> <%= bkg.car.model %></p>
       <p>Début Location : <%= bkg.start_at %></p>
       <p>Fin : <%= bkg.end_at %></p>
