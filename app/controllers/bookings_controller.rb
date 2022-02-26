@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     if @booking.end_at >= @booking.start_at
       if @booking.save
         redirect_to car_path(@car)
-        flash[:notice] = "Réservation envoyée !!!"
+        flash[:notice] = "Réservation envoyée! Vous pouvez consulter vos demandes depuis votre profil."
         # redirect_to my_bookings_path
       else
         render :new

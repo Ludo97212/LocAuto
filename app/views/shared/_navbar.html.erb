@@ -28,9 +28,10 @@
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <% if current_user != nil %>
-            <%= link_to "Mes Voitures à louer", my_cars_path, class: "dropdown-item" %>
+            <%= link_to "Mes Voitures", my_cars_path, class: "dropdown-item" %>
             <%= link_to "Mes Reservations", my_bookings_path, class: "dropdown-item" %>
             <%= link_to "Mes Demandes", my_demands_path, class: "dropdown-item" %>
+            <%= link_to "Modifier profil", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           <% else %>
             <%= link_to "Auncune session en cours", class: "dropdown-item" %>
