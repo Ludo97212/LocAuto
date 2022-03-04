@@ -42,17 +42,14 @@ class BookingsController < ApplicationController
 
   def my_demands
     @bookings = Booking.joins(:car).where(cars: { user_id: current_user }).order(created_at: :desc)
-
-    # @booking = Booking.find(params[:id])
-    # if @booking.update
-    #   redirect_to my_demands_path
-    # end
   end
 
-  def show_demand
+  def update
     @booking = Booking.find(params[:id])
-    if @booking.update
+    if @booking.update(accept_params)
       redirect_to my_demands_path
+    else
+      render :my_demands
     end
   end
 
@@ -64,5 +61,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_at, :end_at, :car_id, :user_id)
+  end
+
+  def accept_params
+    params.require(:booking).permit(:accepted)
   end
 end

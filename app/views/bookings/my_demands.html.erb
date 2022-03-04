@@ -1,7 +1,7 @@
 <div class="container">
   <% @bookings.each do |bkg| %>
     <div class="card-books">
-    <h2><%= link_to "Réservation", show_demand_path(bkg) %> </h2>
+      <h2><%= link_to "Réservation", show_demand_path(bkg) %> </h2>
       <p><%= bkg.car.brand %> - <%= bkg.car.model %></p>
       <p>Début Location : <%= bkg.start_at %></p>
       <p>Fin : <%= bkg.end_at %></p>
@@ -9,9 +9,13 @@
       <% @price = bkg.car.price_per_day %>
       <% @days = (bkg.start_at..bkg.end_at).count %>
       <p>Montant : <%= @days * @price %>€</p>
-      <%= simple_form_for [@car, bkg] do |f| %>
-        <%= f.input :accepted, as: :radio_buttons, collection: [[false, 'Refuser'], [true, 'Accepter']], label_method: :second, value_method: :first, label: "Acceptez-vous cette réservation?" %>
-        <%= f.submit "Valider" %>
+      <% if bkg.accepted %>
+        <h4>Réservation acceptée</h4>
+      <% else %>
+        <%= simple_form_for([@car, bkg], :method => :patch) do |f| %>
+          <%= f.input :accepted, as: :radio_buttons, collection: [[false, 'Refuser'], [true, 'Accepter']], label_method: :second, value_method: :first, label: "Acceptez-vous cette réservation?" %>
+          <%= f.submit "Valider" %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
