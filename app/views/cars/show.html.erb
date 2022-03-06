@@ -36,8 +36,9 @@
   <h4>Année.prod : <%= @car.year_of_production %></h4>
   <%= link_to " Retour à l'accueil", cars_path, class: "fas fa-arrow-alt-circle-left" %>
 
-  <div style="width: 40%; height: 600px;"
+  <div id="map" style="width: 100%; height: 600px;"
     data-controller="mapbox"
+    data-controller="geocoder"
     data-mapbox-markers-value="<%= @marker.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
