@@ -20,6 +20,12 @@ class CarsController < ApplicationController
     else
       @cars = Car.order(created_at: :desc).limit(15)
     end
+    @markers = @cars.geocoded.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude
+      }
+    end
   end
 
   def my_cars
@@ -29,6 +35,11 @@ class CarsController < ApplicationController
   def show
     set_car
     @booking = Booking.new
+    @marker = @car.geocode.map do {
+      lat: @car.latitude,
+      lng: @car.longitude
+    }
+    end
   end
 
   def edit

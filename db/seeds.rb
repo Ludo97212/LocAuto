@@ -13,14 +13,20 @@ require 'faker'
 # puts "DESTROY CARS"
   # Car.destroy_all
 
-puts "CREATE 2 USERS"
-  2.times do
-    User.create!(email: Faker::Internet.email, password: "azerty")
-  end
+# puts "CREATE 2 USERS"
+#   2.times do
+#     User.create!(email: Faker::Internet.email, password: "azerty")
+#   end
 
-puts "CREATE 3 CARS"
-  3.times do
-    Car.create!(brand: Faker::Vehicle.make, model: Faker::Vehicle.model, year_of_production: 2011, address: "Paris Centre", price_per_day: (25..80).to_a.sample, user_id: User.first.id)
-  end
+# puts "CREATE 3 CARS"
+#   3.times do
+#     Car.create!(brand: Faker::Vehicle.make, model: Faker::Vehicle.model, year_of_production: 2011, address: "Paris Centre", price_per_day: (25..80).to_a.sample, user_id: User.first.id)
+#   end
+
+# puts "Adresse aléatoire"
+# CARS = Car.all
+# CARS.each do |car|
+#   car.address = ["Paris, France", "Marseille, France", "Lyon, France", "Nice, France"].sample
+# end
 
 puts "Finished"
