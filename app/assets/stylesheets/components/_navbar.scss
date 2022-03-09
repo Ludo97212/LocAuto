@@ -1,16 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #067bc2;
+  padding: 10px 40px 1px 50px;
   h2 {
-    color: #067bc2;
+    color: white;
   }
   p {
     margin-right: 15px;
-  }
-  img {
-    &:hover {
-      opacity: 0.4;
-    }
   }
 }
 
@@ -20,4 +16,26 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-nav .dropdown-menu {
+  position: static;
+  float: none;
+  border-radius: 10px;
+  padding: 15px 5px 15px 5px;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+  height: 40px;
+  background-color: white;
+  &:hover {
+    opacity: 0.5
+  }
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  font-weight: bold;
 }
