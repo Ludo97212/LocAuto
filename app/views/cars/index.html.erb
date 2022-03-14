@@ -19,6 +19,11 @@
 
 <div class="container">
   <% if @cars.empty? == false %>
+  <div id="map"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
     <div class="index-grid">
       <% @cars.each do |car| %>
         <div class="card-trip">
@@ -36,12 +41,6 @@
           </div>
         </div>
       <% end %>
-    </div>
-
-    <div id='map'
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   <% else %>
     <h1>Aucun Résultat !</h1>

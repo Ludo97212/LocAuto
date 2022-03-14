@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
+gem 'mapbox-gl-rails'
 gem "geocoder"
 gem 'flatpickr'
 gem 'cloudinary', '~> 1.16.0'

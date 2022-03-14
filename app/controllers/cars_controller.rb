@@ -41,6 +41,13 @@ class CarsController < ApplicationController
       lng: @car.longitude
     }
     end
+    @bookings = @car.bookings
+    @bookings_dates = @bookings.map do |booking|
+      {
+        from: booking.start_at,
+        to: booking.end_at
+      }
+    end
   end
 
   def edit
