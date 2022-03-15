@@ -28,6 +28,14 @@ class CarsController < ApplicationController
     end
   end
 
+  def automatic
+    @cars = Car.where(engine: "automatique")
+  end
+
+  def manuel
+    @cars = Car.where(engine: "manuelle")
+  end
+
   def my_cars
     @cars = Car.where(user_id: current_user.id)
   end
@@ -80,6 +88,8 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:brand, :model, :year_of_production, :address, :price_per_day, :photo)
+    params.require(:car).permit(:brand, :model, :year_of_production,
+                                :address, :price_per_day, :engine, :fuel,
+                                :kilometers, :seats, :photo)
   end
 end

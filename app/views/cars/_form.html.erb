@@ -1,14 +1,55 @@
 <div class="container">
   <%= simple_form_for @car do |f| %>
-    <%= f.input :brand %>
-    <%= f.input :model %>
-    <%= f.input :year_of_production %>
-    <%= f.input :address,
+    <div class="row">
+      <div class="col">
+        <%= f.input :brand, label: "Marque" %>
+      </div>
+      <div class="col">
+        <%= f.input :model, label: "Modèle" %>
+      </div>
+    </div>
+
+    <%= f.input :address, label: "Adresse",
       input_html: { data: { geocoder_target: "address" } },
       wrapper_html: { data: { controller: "geocoder",
       geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } }%>
-    <%= f.input :price_per_day %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
+
+
+    <div class="row">
+      <div class="col">
+        <%= f.input :price_per_day, label: "Prix journalier" %>
+      </div>
+      <div class="col">
+        <%= f.input :year_of_production, label: "Année de production" %>
+      </div>
+      <div class="col">
+        <%= f.input :kilometers, label: "Kilométrage" %>
+      </div>
+      <div class="col">
+        <%= f.input :seats, label: "Places" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h4 class="form-h4">Moteur :</h4>
+        <%= f.input_field :engine, as: :radio_buttons,
+            collection: [['essence',"Essence"], ['diesel', "Diesel"]],
+            label_method: :second, value_method: :first, label: false %>
+      </div>
+      <div class="col">
+        <h4 class="form-h4">Boite :</h4>
+        <%= f.input_field :fuel, as: :radio_buttons,
+              collection: [['automatique',"Automatique"], ['manuelle', "Manuelle"]],
+              label_method: :second, value_method: :first, label: false %>
+      </div>
+      <div class="col">
+        <h4 class="form-h4">Ajouter une photo</h4>
+        <%= f.input_field :photo, as: :file %>
+      </div>
+    </div>
+
+
+    <%= f.submit "Enregistrer", class: "btn btn-primary" %>
     <% end %>
 </div>
