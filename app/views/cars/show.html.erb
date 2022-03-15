@@ -11,7 +11,26 @@
       <% end %>
     </div>
     <div class="part">
-      <% if @car.user != current_user %>
+      <h1>Informations :</h1>
+      <h4>Adresse : <%= @car.address %></h4>
+      <h4>Tarif journalier : <%= @car.price_per_day %>€</h4>
+      <h4>Année de production : <%= @car.year_of_production %></h4>
+      <h4>Moteur : <%= @car.fuel %></h4>
+      <h4>Kilométrage : <%= @car.kilometers %></h4>
+      <h4>Boite <%= @car.engine %></h4>
+      <h4><%= @car.seats %> places</h4>
+    </div>
+  </div>
+
+  <div class="show">
+    <div class="part">
+      <div id="map" style="width: 500px; height: 500px;"
+        data-markers="<%= @marker.to_json %>">
+      </div>
+    </div>
+
+    <div class="part">
+       <% if @car.user != current_user %>
         <div class="form-wrapper">
           <div class="card">
             <%= simple_form_for [@car, @booking] do |f| %>
@@ -27,24 +46,6 @@
         <%= link_to "Modifier les informations", edit_car_path(@car), class: "btn btn-warning" %>
         <%= link_to "Supprimer cette offre !", car_path(@car), method: :delete, data: { confirm: "Etes vous sure?" }, class: "btn btn-danger" %>
       <% end %>
-    </div>
-  </div>
-
-  <div class="show">
-    <div class="part">
-      <div id="map" style="width: 100%; height: 600px;"
-        data-markers="<%= @marker.to_json %>">
-      </div>
-    </div>
-
-    <div class="part">
-      <h1>Informations :</h1>
-      <h4>Adresse : <%= @car.address %></h4>
-      <h4>Tarif journalier : <%= @car.price_per_day %>€</h4>
-      <h4>Année.prod : <%= @car.year_of_production %></h4>
-      <h4>Moteur : <%= @car.fuel %> / <%= @car.kilometers %>km</h4>
-      <h4>Boite : <%= @car.engine %></h4>
-      <h4>Places : <%= @car.seats %></h4>
     </div>
   </div>
 
