@@ -14,13 +14,12 @@ class CarsController < ApplicationController
   end
 
   def index
-    # if params[:query].present?
-    #   sql_query = "brand ILIKE :query OR model ILIKE :query OR address ILIKE :query"
-    #   @cars = Car.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
-    # else
-    #   @cars = Car.order(created_at: :desc).limit(15)
-    # end
-    @cars = Car.all
+    if params[:query].present?
+      sql_query = "brand ILIKE :query OR model ILIKE :query OR address ILIKE :query"
+      @cars = Car.where(sql_query, query: "%#{params[:query]}%").order(created_at: :desc)
+    else
+      @cars = Car.order(created_at: :desc).limit(15)
+    end
     @markers = @cars.geocoded.map do |car|
       {
         lat: car.latitude,
