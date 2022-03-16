@@ -50,3 +50,19 @@ label.collection_radio_buttons {
   font-family: monospace;
   font-size: 18px;
 }
+
+// --------------------------------------------------
+
+.filter-form {
+  label.collection_radio_buttons {
+    border-radius: 10px;
+    margin: 2px;
+    background-color: white;
+    color: #067bc2;
+    padding: 5px 5px 5px 5px;
+    width: 200px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid rgba(22, 127, 251, 0.2);
+}
+}

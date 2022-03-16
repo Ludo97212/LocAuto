@@ -81,6 +81,33 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
+  # ----------------------------------------------------- #
+  def filter
+    # .where(engine: "Automatique")
+    # .where(engine: "Manuelle")
+
+    # .where(fuel: "Essence")
+    # .where(fuel: "Diesel")
+
+    # .where(seats: 3)
+    # .where(seats: 4)
+    # .where(seats: 5)
+    # .where(seats: 6)
+    # .where(:seats > 6)
+
+    # .where(:year_of_production < 2000)
+    # .where(:year_of_production.between?(2000,2010))
+    # .where(:year_of_production > 2010)
+
+    # .where(:price_per_day < 20)
+    # .where(:price_per_day.between?(20..50))
+    # .where(:price_per_day.between?(50..100))
+    # .where(:price_per_day > 100)
+
+    # @cars =
+  end
+  # ----------------------------------------------------- #
+
   private
 
   def set_car

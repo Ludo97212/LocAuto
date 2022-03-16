@@ -25,30 +25,28 @@
       <div class="col">
         <%= f.input :kilometers, label: "Kilométrage" %>
       </div>
-      <div class="col">
-        <%= f.input :seats, label: "Places" %>
-      </div>
     </div>
 
     <div class="row">
       <div class="col">
         <h4 class="form-h4">Moteur :</h4>
         <%= f.input_field :engine, as: :radio_buttons,
-            collection: [['essence',"Essence"], ['diesel', "Diesel"]],
+            collection: [['Essence',"Essence"], ['Diesel', "Diesel"]],
             label_method: :second, value_method: :first, label: false %>
       </div>
       <div class="col">
         <h4 class="form-h4">Boite :</h4>
         <%= f.input_field :fuel, as: :radio_buttons,
-              collection: [['automatique',"Automatique"], ['manuelle', "Manuelle"]],
+              collection: [['Automatique',"Automatique"], ['Manuelle', "Manuelle"]],
               label_method: :second, value_method: :first, label: false %>
       </div>
       <div class="col">
-        <h4 class="form-h4">Ajouter une photo</h4>
-        <%= f.input_field :photo, as: :file %>
+        <%= f.input :seats, label: "Places" %>
       </div>
     </div>
 
+    <h4 class="form-h4">Ajouter une photo</h4>
+    <%= f.input_field :photo, as: :file %>
 
     <%= f.submit "Enregistrer", class: "btn btn-primary" %>
     <% end %>
