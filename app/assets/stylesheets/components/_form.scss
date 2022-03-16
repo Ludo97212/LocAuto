@@ -1,0 +1,68 @@
+label {
+  color: #067bc2;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+.radio_buttons{
+    display:none;
+    & + label{
+      &:before{content:""; display: inline-block; height:15px; width:15px; background:white; margin-bottom:1px; margin-right:15px; border:2px solid rgba($primary, 0.2); transition:all .2s; border-radius:10px;}
+    }
+    &:checked {
+      & + label{
+        &:before{background:$primary;}
+        border: 2px solid rgba($primary, 0.5);
+      }
+    }
+  }
+
+label.collection_radio_buttons {
+    border-radius: 10px;
+    margin: 7px;
+    background-color: white;
+    color: #067bc2;
+    padding : 15px 30px 15px 10px;
+    width: 258px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid rgba($primary, 0.2);
+}
+
+.input {
+  height: 40px;
+  margin: 0px;
+  margin-top: 10px;
+  display: block;
+  width: 20%;
+  font-size: 18px;
+  background-color: rgba(22, 127, 251, 0.1);
+  color: #B5BDC9;
+  border: 1px solid #DDDDDD;
+  padding: 16px 15px 17px 40px;
+  border-radius: 10px;
+}
+
+.form-h4 {
+  color: #067bc2;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+// --------------------------------------------------
+
+.filter-form {
+  label.collection_radio_buttons {
+    border-radius: 10px;
+    margin: 2px;
+    background-color: white;
+    color: #067bc2;
+    padding: 5px 5px 5px 5px;
+    width: 200px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid rgba(22, 127, 251, 0.2);
+}
+}

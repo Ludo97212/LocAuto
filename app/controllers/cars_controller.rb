@@ -28,6 +28,14 @@ class CarsController < ApplicationController
     end
   end
 
+  def automatic
+    @cars = Car.where(engine: "automatique")
+  end
+
+  def manuel
+    @cars = Car.where(engine: "manuelle")
+  end
+
   def my_cars
     @cars = Car.where(user_id: current_user.id)
   end
@@ -73,6 +81,33 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
+  # ----------------------------------------------------- #
+  def filter
+    # .where(engine: "Automatique")
+    # .where(engine: "Manuelle")
+
+    # .where(fuel: "Essence")
+    # .where(fuel: "Diesel")
+
+    # .where(seats: 3)
+    # .where(seats: 4)
+    # .where(seats: 5)
+    # .where(seats: 6)
+    # .where(:seats > 6)
+
+    # .where(:year_of_production < 2000)
+    # .where(:year_of_production.between?(2000,2010))
+    # .where(:year_of_production > 2010)
+
+    # .where(:price_per_day < 20)
+    # .where(:price_per_day.between?(20..50))
+    # .where(:price_per_day.between?(50..100))
+    # .where(:price_per_day > 100)
+
+    # @cars =
+  end
+  # ----------------------------------------------------- #
+
   private
 
   def set_car
@@ -80,6 +115,8 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:brand, :model, :year_of_production, :address, :price_per_day, :photo)
+    params.require(:car).permit(:brand, :model, :year_of_production,
+                                :address, :price_per_day, :engine, :fuel,
+                                :kilometers, :seats, :photo)
   end
 end
