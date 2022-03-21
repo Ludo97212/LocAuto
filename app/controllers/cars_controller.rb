@@ -28,11 +28,15 @@ class CarsController < ApplicationController
     end
   end
 
-  def automatic
+  def filter_search
+
+  end
+
+  def automatics
     @cars = Car.where(engine: "automatique")
   end
 
-  def manuel
+  def manuels
     @cars = Car.where(engine: "manuelle")
   end
 
@@ -104,7 +108,9 @@ class CarsController < ApplicationController
     # .where(:price_per_day.between?(50..100))
     # .where(:price_per_day > 100)
 
-    # @cars =
+    # --------------------------------------------------#
+
+    # @cars = Car.where
   end
   # ----------------------------------------------------- #
 

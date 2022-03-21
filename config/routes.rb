@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'cars#index'
   # ADDITONNAL ROUTES
   get "my_cars", to: "cars#my_cars"
+  get "filter_search", to: "cars#filter_search"
   get "my_bookings", to: "bookings#my_bookings"
   get "my_demands", to: "bookings#my_demands"
   get "show_demand", to: "bookings#show_demand"
