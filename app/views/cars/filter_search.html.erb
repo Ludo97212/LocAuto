@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="filter-form">
+    <%= simple_form_for(cars_path, method: :get, url: cars_path) do |f| %>
+      <%= f.input_field :engine, as: :radio_buttons,
+            collection: [["Essence", "Essence"], ["Diesel", "Diesel"]],
+            label_method: :second, value_method: :first, label: false %>
+      <br>
+      <%= f.input_field :fuel, as: :radio_buttons,
+            collection: [["Automatique","Automatique"], ["Manuelle", "Manuelle"]],
+            label_method: :second, value_method: :first, label: false %>
+      <br>
+      <%= f.input_field :engine, as: :radio_buttons,
+            collection: [[3, "3 places"], [4, "4 places"], [5, "5 places"], [6, "6 places"], [7, "7 et + places"]],
+            label_method: :second, value_method: :first, label: false %>
+      <br>
+      <%= f.input_field :year_of_production, as: :radio_buttons,
+            collection: [[1, "Avant 2000"], [2, "2000-2010"], [3, "Après 2010"]],
+            label_method: :second, value_method: :first, label: false %>
+      <br>
+      <%= f.input_field :price_per_day, as: :radio_buttons,
+            collection: [[20, "- 20€"], [50, "20 à 50€"], [100, "50 à 100€"], [999_999, "+ 100€"]],
+            label_method: :second, value_method: :first, label: false %>
+      <%= f.submit "Trier", remote: true %>
+    <% end %>
+  </div>
+</div>

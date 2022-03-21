@@ -10,6 +10,9 @@
 </div>
 
 <div class="container">
+
+  <%= link_to "Recherche personalisée", filter_search_path %>
+
   <div id="map" style="width: 100%; height: 600px; margin-bottom: 50px;"
       data-markers="<%= @markers.to_json %>">
   </div>
@@ -35,29 +38,4 @@
     <% else %>
       <h1>Aucun Résultat !</h1>
     <% end %>
-</div>
-
-<div class="filter-form">
-  <%= simple_form_for "" do |f| %>
-    <%= f.input_field :engine, as: :radio_buttons,
-          collection: [[1, "Essence"], [2, "Diesel"]],
-          label_method: :second, value_method: :first, label: false %>
-    <br>
-    <%= f.input_field :fuel, as: :radio_buttons,
-          collection: [[2,"Automatique"], [1, "Manuelle"]],
-          label_method: :second, value_method: :first, label: false %>
-    <br>
-    <%= f.input_field :engine, as: :radio_buttons,
-          collection: [[3, "3 places"], [4, "4 places"], [5, "5 places"], [6, "6 places"], [7, "7 et + places"]],
-          label_method: :second, value_method: :first, label: false %>
-    <br>
-    <%= f.input_field :year_of_production, as: :radio_buttons,
-          collection: [[1, "Avant 2000"], [2, "2000-2010"], [3, "Après 2010"]],
-          label_method: :second, value_method: :first, label: false %>
-    <br>
-    <%= f.input_field :price_per_day, as: :radio_buttons,
-          collection: [[1, "- 20€"], [2, "20 à 50€"], [3, "50 à 100€"], [4, "+ 100€"]],
-          label_method: :second, value_method: :first, label: false %>
-    <%= f.submit "Trier", remote: true %>
-  <% end %>
 </div>
