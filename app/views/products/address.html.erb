@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>TEST</h1>
+  <%= simple_form_for @car, url: next_wizard_path(brand: params[:brand], model: params[:model],
+                            price_per_day: params[:price_per_day],
+                            engine: params[:engine], fuel: params[:fuel],
+                            kilometers: params[:kilometers], seats: params[:seats],
+                            year_of_production: params[:year_of_production],
+                            price_per_day: params[:price_per_day],
+                            adress: params[:adress]),
+                            method: :put do |f|  %>
+
+  <%= f.input :address, label: "Adresse", id: "location" %>
+  <%= link_to previous_wizard_path(brand: params[:brand], model: params[:model],
+                            price_per_day: params[:price_per_day],
+                            engine: params[:engine], fuel: params[:fuel],
+                            kilometers: params[:kilometers], seats: params[:seats],
+                            year_of_production: params[:year_of_production],
+                            price_per_day: params[:price_per_day]),
+                        class:"button-primary-outline mt-4" do  %>
+    Précédent
+  <% end %>
+  <%= f.submit %>
+  <% end %>
+</div>
