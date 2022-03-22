@@ -33,14 +33,6 @@ class CarsController < ApplicationController
 
   # end
 
-  def automatics
-    @cars = Car.where(engine: "automatique")
-  end
-
-  def manuels
-    @cars = Car.where(engine: "manuelle")
-  end
-
   def my_cars
     @cars = Car.where(user_id: current_user.id)
   end

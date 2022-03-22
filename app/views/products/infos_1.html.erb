@@ -1,7 +1,7 @@
 <div class="container">
   <h1>TEST</h1>
 
-  <%= simple_form_for @car, url: next_wizard_path(brand: params[:brand],
+  <%= simple_form_for "", url: next_wizard_path(brand: params[:brand],
                               model: params[:model],
                               price_per_day: params[:price_per_day]),
                               method: :put do |f|  %>

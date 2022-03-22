@@ -1,6 +1,6 @@
 <div class="container">
   <h1>TEST</h1>
-  <%= simple_form_for @car, url: next_wizard_path(brand: params[:brand], model: params[:model],
+  <%= simple_form_for "", url: next_wizard_path(brand: params[:brand], model: params[:model],
                               price_per_day: params[:price_per_day],
                               engine: params[:engine], fuel: params[:fuel],
                               kilometers: params[:kilometers], seats: params[:seats],
@@ -41,4 +41,3 @@
   <%= f.submit %>
   <% end %>
 </div>
-<%= raise %>
