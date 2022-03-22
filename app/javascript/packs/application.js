@@ -27,14 +27,15 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initFlatpickr } from '../plugins/flatpickr';
-// import { initMapbox } from '../plugins/init_mapbox';
-// import { initAutocomplete } from '../plugins/init_autocomplete';
+import { autocomplete } from '../components/autocomplete';
+import { initMap } from '../plugins/init_map';
+
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initFlatpickr();
-  // initMapbox();
-  // initAutocomplete();
+  autocomplete();
+  initMap();
 });

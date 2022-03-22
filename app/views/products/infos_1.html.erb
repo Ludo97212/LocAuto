@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>TEST</h1>
+
+  <%= simple_form_for @car, url: next_wizard_path(brand: params[:brand],
+                              model: params[:model],
+                              price_per_day: params[:price_per_day]),
+                              method: :put do |f|  %>
+    <div class="row">
+        <div class="col">
+          <%= f.input :brand, label: "Marque" %>
+        </div>
+        <div class="col">
+          <%= f.input :model, label: "Modèle" %>
+        </div>
+    </div>
+    <%= f.input :price_per_day, label: "Prix journalier" %>
+    <%= f.submit %>
+  <% end %>
+</div>

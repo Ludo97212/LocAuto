@@ -1,11 +1,15 @@
 # require 'faker'
 # Faker DOESN'T WORK in PRODUCTION
 
-MARQUES = ["Toyota","Skoda","Mercedes-Benz","BMW","Peugeot","Hyundai","Ford","Audi","Volkswagen","Nissan","Seat","Kia","Land Rover","Mini","Peugeot","Citroën","Opel"]
-MODELES = %w[Altima Malibu Civic Altima Regal Camero Accord M3 A7 Corolla Versa A5
-            MKS MKZ Malibu A7 Versa MKZ Durango Charger Ram M5 Rogue Focus MKS Encore
-            Accord A8 F150 X3 A4 X3 Camero Encore Pathfiner Fiesta Prius Ram M5
-            Silverado MKZ Camero Camero Mustang Camry Enclave Cube Fiesta Pathfiner Ram]
+BRAND = ["Peugeot","Citroën","Opel","Toyota","Skoda","Mercedes-Benz","BMW","Peugeot","Hyundai","Ford","Audi","Volkswagen","Nissan","Seat","Kia","Land Rover","Mini"]
+MODEL = %w[Altima Malibu Civic Altima Regal Accord M3 A7 Corolla Versa A5
+            MKS MKZ Malibu A7 Versa MKZ Durango Charger Rogue Focus Encore
+            Accord A8 F150 X3 A4 X3 Camero Encore Pathfiner Fiesta Prius M5
+            Silver MKZ Camry Enclave Cube Fiesta Pathfiner Ram]
+
+CITY = ["Paris", "Marseille", "Lyon", "Nice", "Bordeaux", "Lens", "Montpellier", "Strasbourg"]
+ADDRESS = ["#{(27..150).to_a.sample}, place Rémy Barbe", "#{(27..150).to_a.sample}, rue Charlotte Torres", "#{(27..150).to_a.sample}, impasse Bouvier", "#{(27..150).to_a.sample}, impasse Martineau","#{(27..150).to_a.sample}, avenue Vallee", "#{(27..150).to_a.sample}, boulevard de Poirier", "#{(27..150).to_a.sample}, rue de Brunel"]
+
 puts "DESTROY BOOKINGS"
 Booking.destroy_all
 
@@ -21,11 +25,11 @@ User.create!(email: "bibi@gmail.com", password: "azerty")
 
 puts "CREATE x CARS"
   12.times do
-    Car.create!(brand: MARQUES.sample,
-                model: MODELES.sample,
+    Car.create!(brand: BRAND.sample,
+                model: MODEL.sample,
                 year_of_production: (2006...2022).to_a.sample,
                 price_per_day: (20..90).to_a.sample,
-                address: ["Paris", "Marseille", "Lyon", "Nice", "Monaco"].sample,
+                address: "#{ADDRESS.sample}, #{CITY.sample}",
                 engine: ["Automatique", "Manuelle"].sample,
                 fuel: ["Essence", "Diesel"].sample,
                 kilometers: (15_000...70_000).to_a.sample,

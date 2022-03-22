@@ -6,6 +6,7 @@ ruby '2.7.4'
 gem 'mapbox-gl-rails'
 gem "geocoder"
 gem 'flatpickr'
+gem 'wicked'
 gem 'cloudinary', '~> 1.16.0'
 # gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

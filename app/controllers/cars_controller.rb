@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :filter_search]
   def new
     @car = Car.new
   end
@@ -28,9 +29,9 @@ class CarsController < ApplicationController
     end
   end
 
-  def filter_search
+  # def filter_search
 
-  end
+  # end
 
   def automatics
     @cars = Car.where(engine: "automatique")
